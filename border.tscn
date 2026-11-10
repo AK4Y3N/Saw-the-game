@@ -6,7 +6,7 @@ size = Vector2(1172, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujjr2"]
 size = Vector2(20, 20.066183)
 
-[node name="StaticBody2D" type="StaticBody2D" unique_id=90087413]
+[node name="Border" type="StaticBody2D" unique_id=90087413]
 collision_mask = 0
 
 [node name="TopWall" type="CollisionShape2D" parent="." unique_id=1950694939]

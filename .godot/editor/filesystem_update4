@@ -1,4 +1,8 @@
-res://game.tscn
-res://Player/player.gd
-res://Player/Player.tscn
 res://border.tscn
+res://game.tscn
+res://Cheese/cheese.tscn
+res://Cheese/cheese.gd
+res://Player/Player.tscn
+res://Cheese/cheese_spawner.tscn
+res://Cheese/cheese_spawner.gd
+res://game.gd

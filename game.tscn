@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvmon7eern5ib"]
 
 [ext_resource type="PackedScene" uid="uid://doucyc7yewk46" path="res://Player/Player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://baw3esjbobco4" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://sca0pydoy3hg" path="res://border.tscn" id="2_e2o6t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqqxi"]
@@ -10,6 +11,7 @@ bg_color = Color(0.28235295, 0.5254902, 0.3529412, 0.5019608)
 bg_color = Color(0, 0.62352943, 0.16078432, 0.8627451)
 
 [node name="Game" type="Node2D" unique_id=364657734]
+script = ExtResource("1_fc0e3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1177164226]
 offset_left = -135.0
@@ -18,7 +20,7 @@ offset_right = 1324.0
 offset_bottom = 774.0
 
 [node name="Player" parent="." unique_id=42443762 instance=ExtResource("1_80nbo")]
-position = Vector2(447, 225)
+position = Vector2(122, 225)
 
 [node name="StaminaBar" type="ProgressBar" parent="." unique_id=1909327915]
 offset_left = 8.0
@@ -29,4 +31,17 @@ theme_override_styles/background = SubResource("StyleBoxFlat_jqqxi")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ubj4k")
 value = 55.0
 
-[node name="StaticBody2D" parent="." unique_id=90087413 instance=ExtResource("2_e2o6t")]
+[node name="Border" parent="." unique_id=90087413 instance=ExtResource("2_e2o6t")]
+visible = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1267894418]
+autostart = true
+
+[node name="Score" type="ProgressBar" parent="." unique_id=1109398765]
+offset_left = 394.0
+offset_top = 35.0
+offset_right = 700.0
+offset_bottom = 62.0
+value = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

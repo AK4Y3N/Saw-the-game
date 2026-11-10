@@ -140,7 +140,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 4.0
+radius = 22.62
 
 [node name="Player" type="CharacterBody2D" unique_id=42443762]
 motion_mode = 1
