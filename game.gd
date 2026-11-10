@@ -16,3 +16,4 @@ func _on_timer_timeout() -> void:
 func add_score(points):
 	score += points
 	print("score: ", score)
+	$Label.text = str("wynik: ",score)

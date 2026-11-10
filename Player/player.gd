@@ -32,7 +32,7 @@ func movement(delta: float):
 	elif stamina > 25:
 		can_sprint = true
 
-	if sprint == false:
+	if speed:
 		stamina += stamina_regen * delta
 	stamina = clamp(stamina, 0, 100)
 	stamina_bar.value = stamina
