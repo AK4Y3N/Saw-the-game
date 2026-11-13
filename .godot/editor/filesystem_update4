@@ -1,3 +1,4 @@
-res://Player/player.gd
 res://game.tscn
-res://game.gd
+res://Cheese/cheese.gd
+res://Saw/saw.gd
+res://Saw/saw.tscn

@@ -10,10 +10,21 @@ func spawn_cheese():
 	new_cheese.item_collected.connect(add_score)
 	add_child(new_cheese)
 
-func _on_timer_timeout() -> void:
-	spawn_cheese()
-
 func add_score(points):
 	score += points
 	print("score: ", score)
 	$Label.text = str("wynik: ",score)
+
+func spawn_saw():
+	var new_saw = preload("res://Saw/saw.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	new_saw.global_position = %PathFollow2D.global_position
+	add_child(new_saw)
+
+
+func _on_saw_timer_timeout() -> void:
+	spawn_saw()
+
+
+func _on_cheese_timer_timeout() -> void:
+	spawn_cheese()

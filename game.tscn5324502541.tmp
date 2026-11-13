@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cvmon7eern5ib"]
+
+[ext_resource type="PackedScene" uid="uid://doucyc7yewk46" path="res://Player/Player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://baw3esjbobco4" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://sca0pydoy3hg" path="res://border.tscn" id="2_e2o6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqqxi"]
+bg_color = Color(0.28235295, 0.5254902, 0.3529412, 0.5019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubj4k"]
+bg_color = Color(0, 0.62352943, 0.16078432, 0.8627451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_feb5d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, -69, 0, 0, 0, 0, 1276, -69, 0, 0, 0, 0, 1274, 722, 0, 0, 0, 0, -84, 721, 0, 0, 0, 0, -81, -69)
+}
+point_count = 5
+
+[node name="Game" type="Node2D" unique_id=364657734]
+script = ExtResource("1_fc0e3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1177164226]
+offset_left = -135.0
+offset_top = -88.0
+offset_right = 1324.0
+offset_bottom = 774.0
+
+[node name="Player" parent="." unique_id=42443762 instance=ExtResource("1_80nbo")]
+position = Vector2(122, 225)
+
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=1909327915]
+offset_left = 8.0
+offset_top = 609.0
+offset_right = 268.0
+offset_bottom = 640.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jqqxi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ubj4k")
+value = 55.0
+
+[node name="Border" parent="." unique_id=90087413 instance=ExtResource("2_e2o6t")]
+visible = false
+
+[node name="CheeseTimer" type="Timer" parent="." unique_id=1267894418]
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1827212095]
+texture_filter = 1
+offset_left = 424.0
+offset_top = 18.0
+offset_right = 543.0
+offset_bottom = 63.0
+text = "sdawad"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=2086582297]
+curve = SubResource("Curve2D_feb5d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=241964774]
+position = Vector2(-81, -69)
+
+[connection signal="timeout" from="CheeseTimer" to="." method="_on_timer_timeout"]

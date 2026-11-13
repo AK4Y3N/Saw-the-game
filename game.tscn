@@ -14,6 +14,12 @@ bg_color = Color(0, 0.62352943, 0.16078432, 0.8627451)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Curve2D" id="Curve2D_feb5d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -81, -69, 0, 0, 0, 0, 1276, -69, 0, 0, 0, 0, 1274, 722, 0, 0, 0, 0, -84, 721, 0, 0, 0, 0, -81, -69)
+}
+point_count = 5
+
 [node name="Game" type="Node2D" unique_id=364657734]
 script = ExtResource("1_fc0e3")
 
@@ -24,7 +30,7 @@ offset_right = 1324.0
 offset_bottom = 774.0
 
 [node name="Player" parent="." unique_id=42443762 instance=ExtResource("1_80nbo")]
-position = Vector2(122, 225)
+position = Vector2(529, 333)
 
 [node name="StaminaBar" type="ProgressBar" parent="." unique_id=1909327915]
 offset_left = 8.0
@@ -38,7 +44,7 @@ value = 55.0
 [node name="Border" parent="." unique_id=90087413 instance=ExtResource("2_e2o6t")]
 visible = false
 
-[node name="Timer" type="Timer" parent="." unique_id=1267894418]
+[node name="CheeseTimer" type="Timer" parent="." unique_id=1267894418]
 autostart = true
 
 [node name="Label" type="Label" parent="." unique_id=1827212095]
@@ -50,4 +56,17 @@ offset_bottom = 63.0
 text = "sdawad"
 label_settings = SubResource("LabelSettings_g4v7s")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Path2D" type="Path2D" parent="." unique_id=2086582297]
+position = Vector2(-24.394123, -27.242733)
+scale = Vector2(1.0191177, 1.0834386)
+curve = SubResource("Curve2D_feb5d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=241964774]
+unique_name_in_owner = true
+position = Vector2(-81, -69)
+
+[node name="SawTimer" type="Timer" parent="." unique_id=1302153095]
+autostart = true
+
+[connection signal="timeout" from="CheeseTimer" to="." method="_on_cheese_timer_timeout"]
+[connection signal="timeout" from="SawTimer" to="." method="_on_saw_timer_timeout"]
