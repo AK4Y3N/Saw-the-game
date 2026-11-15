@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var stamina_bar: ProgressBar = get_node("/root/Game/StaminaBar")
-
 var speed = 300
 var sprint_speed = 500
 
@@ -12,9 +11,12 @@ var can_regen: bool = false
 
 var can_sprint: bool = true
 
+var health = 3
+signal health_depleted
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+
 
 
 func movement(delta: float):
@@ -55,3 +57,9 @@ func movement(delta: float):
 		$AnimatedSprite2D.play("idle")
 		
 	move_and_slide()
+
+func take_damage(hitpoints):
+	health -= hitpoints 
+	print("zostalo tyle zycia: ", health)
+	if health <= 0:
+		health_depleted.emit()

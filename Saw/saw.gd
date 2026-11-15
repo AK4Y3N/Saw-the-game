@@ -7,8 +7,10 @@ var speed = randf_range(300, 1000)
 var punkt
 var wall 
 
+var hitpoints = 2
+
 func _ready() -> void:
-	var wall = randi_range(1, 4)
+	wall = randi_range(1, 4)
 	if wall == 1:
 		punkt = Vector2(randf_range(-200,1400), -200)
 	elif wall == 2:
@@ -23,3 +25,8 @@ func _process(delta):
 	
 	if global_position == punkt:
 		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	body.take_damage(hitpoints)
+	

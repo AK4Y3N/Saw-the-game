@@ -20,6 +20,9 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_feb5d"]
+font_size = 80
+
 [node name="Game" type="Node2D" unique_id=364657734]
 script = ExtResource("1_fc0e3")
 
@@ -30,6 +33,7 @@ offset_right = 1324.0
 offset_bottom = 774.0
 
 [node name="Player" parent="." unique_id=42443762 instance=ExtResource("1_80nbo")]
+unique_name_in_owner = true
 position = Vector2(529, 333)
 
 [node name="StaminaBar" type="ProgressBar" parent="." unique_id=1909327915]
@@ -68,5 +72,29 @@ position = Vector2(-81, -69)
 [node name="SawTimer" type="Timer" parent="." unique_id=1302153095]
 autostart = true
 
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=805394467]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver" unique_id=1332331769]
+offset_left = -19.0
+offset_top = -23.0
+offset_right = 1167.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 0.7294118)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect" unique_id=19725388]
+layout_mode = 0
+offset_left = 219.00002
+offset_top = -49.0
+offset_right = 914.0
+offset_bottom = 335.0
+scale = Vector2(1.0187008, 1.1961559)
+text = "Game Over"
+label_settings = SubResource("LabelSettings_feb5d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="CheeseTimer" to="." method="_on_cheese_timer_timeout"]
 [connection signal="timeout" from="SawTimer" to="." method="_on_saw_timer_timeout"]

@@ -143,6 +143,7 @@ animations = [{
 radius = 22.62
 
 [node name="Player" type="CharacterBody2D" unique_id=42443762]
+collision_layer = 3
 motion_mode = 1
 platform_floor_layers = 4294967040
 script = ExtResource("1_q3lat")

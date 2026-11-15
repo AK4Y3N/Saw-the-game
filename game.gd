@@ -28,3 +28,9 @@ func _on_saw_timer_timeout() -> void:
 
 func _on_cheese_timer_timeout() -> void:
 	spawn_cheese()
+
+
+func _on_player_health_depleted() -> void:
+	%GameOver.visible = true
+	get_tree().paused = true
+	#get_tree().reload_current_scene()

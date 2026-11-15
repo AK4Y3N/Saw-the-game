@@ -44,6 +44,8 @@ radius = 28.305105
 
 [node name="Saw" type="Area2D" unique_id=1214706103]
 scale = Vector2(1.8381602, 1.8381602)
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_i0d73")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=641884484]
@@ -58,3 +60,5 @@ frame_progress = 0.94864947
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=175073025]
 scale = Vector2(0.98986095, 0.9825503)
 shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
