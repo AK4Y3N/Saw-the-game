@@ -60,15 +60,6 @@ offset_bottom = 67.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_g4v7s")
 
-[node name="Label2" type="Label" parent="." unique_id=1475909960]
-texture_filter = 1
-offset_left = 500.0
-offset_top = 22.0
-offset_right = 621.0
-offset_bottom = 67.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_g4v7s")
-
 [node name="Path2D" type="Path2D" parent="." unique_id=2086582297]
 position = Vector2(-24.394123, -27.242733)
 scale = Vector2(1.0191177, 1.0834386)
