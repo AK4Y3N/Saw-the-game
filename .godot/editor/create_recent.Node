@@ -1,3 +1,6 @@
+Node2D
+CheckButton
+Button
 Label
 ColorRect
 CanvasLayer
@@ -7,8 +10,5 @@ PathFollow2D
 Path2D
 CollisionShape2D
 AnimatedSprite2D
-Node2D
 ProgressBar
 Marker2D
-Sprite2D
-StaticBody2D

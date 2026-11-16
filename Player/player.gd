@@ -17,8 +17,6 @@ signal health_depleted
 func _physics_process(delta: float) -> void:
 	movement(delta)
 
-
-
 func movement(delta: float):
 	var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
 	var sprint = Input.is_action_pressed("sprint")
@@ -60,6 +58,5 @@ func movement(delta: float):
 
 func take_damage(hitpoints):
 	health -= hitpoints 
-	print("zostalo tyle zycia: ", health)
 	if health <= 0:
 		health_depleted.emit()

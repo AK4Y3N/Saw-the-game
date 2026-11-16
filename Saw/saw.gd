@@ -7,7 +7,7 @@ var speed = randf_range(300, 1000)
 var punkt
 var wall 
 
-var hitpoints = 2
+var hitpoints = 3
 
 func _ready() -> void:
 	wall = randi_range(1, 4)

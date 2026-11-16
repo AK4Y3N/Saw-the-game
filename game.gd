@@ -12,8 +12,7 @@ func spawn_cheese():
 
 func add_score(points):
 	score += points
-	print("score: ", score)
-	$Label.text = str("wynik: ",score)
+	$Label.text = str("score: ",score)
 
 func spawn_saw():
 	var new_saw = preload("res://Saw/saw.tscn").instantiate()
@@ -33,4 +32,11 @@ func _on_cheese_timer_timeout() -> void:
 func _on_player_health_depleted() -> void:
 	%GameOver.visible = true
 	get_tree().paused = true
-	#get_tree().reload_current_scene()
+
+func _on_restart_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

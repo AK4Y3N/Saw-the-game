@@ -53,11 +53,20 @@ autostart = true
 
 [node name="Label" type="Label" parent="." unique_id=1827212095]
 texture_filter = 1
-offset_left = 424.0
-offset_top = 18.0
-offset_right = 543.0
-offset_bottom = 63.0
-text = "sdawad"
+offset_left = 500.0
+offset_top = 22.0
+offset_right = 621.0
+offset_bottom = 67.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Label2" type="Label" parent="." unique_id=1475909960]
+texture_filter = 1
+offset_left = 500.0
+offset_top = 22.0
+offset_right = 621.0
+offset_bottom = 67.0
+text = "Score: 0"
 label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2086582297]
@@ -95,6 +104,30 @@ label_settings = SubResource("LabelSettings_feb5d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Restart" type="Button" parent="GameOver/ColorRect" unique_id=1316114083]
+process_mode = 2
+layout_mode = 0
+offset_left = 209.0
+offset_top = 372.0
+offset_right = 356.0
+offset_bottom = 453.0
+scale = Vector2(1.3200006, 1.3200006)
+action_mode = 0
+text = "Play again"
+
+[node name="Exit" type="Button" parent="GameOver/ColorRect" unique_id=1073797498]
+process_mode = 2
+layout_mode = 0
+offset_left = 749.0
+offset_top = 370.0
+offset_right = 896.0
+offset_bottom = 451.0
+scale = Vector2(1.3200006, 1.3200006)
+action_mode = 0
+text = "Exit"
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="CheeseTimer" to="." method="_on_cheese_timer_timeout"]
 [connection signal="timeout" from="SawTimer" to="." method="_on_saw_timer_timeout"]
+[connection signal="pressed" from="GameOver/ColorRect/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/ColorRect/Exit" to="." method="_on_exit_pressed"]
